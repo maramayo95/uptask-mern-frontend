@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Alert from "../components/Alert";
 import axios from 'axios'
+import { data } from "autoprefixer";
 
 const Register = () => {
   const [formInputs, setFormInputs] = useState({
@@ -37,34 +38,29 @@ const Register = () => {
         msg: 'La contraseña debe tener mas de 6 caracteres',
         error: true
       })
+      return
     }
     
     setAlert({})
-    try {
-      const respuesta = await axios.post('api/usuarios', {
-        nombre:nombre,
-        password: password,
-        email : email
-      })
-      console.log(respuesta)
-    } catch (error) {
-      console.log(error)
-    }
-
-    // const request = await fetch("http://localhost:8080/api/usuarios", {
-    //   method: "POST",
-    //   body : JSON.stringify({
-    //     nombre,
-    //     password,
-    //     email
-    //   }),
-    //   headers: {
-    //     "Content-type": "application/json; charset=UTF-8"
-    //   }
-    // })
-    // .then(response => response.json())
-    // .then(json => console.log(json))
   
+    try {
+      const {data} = await axios.post('api/usuarios', {
+        nombre,
+        password,
+        email
+      })
+      setAlert({
+        msg: data.msg,
+        error: false
+      })
+    } catch (error) {
+      setAlert({
+        msg: error.response.data.msg
+      })
+    }
+    setTimeout(()=>setAlert({}) ,2000)
+   
+    
   };
 
 
