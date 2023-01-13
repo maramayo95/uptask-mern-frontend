@@ -50,15 +50,26 @@ const Register = () => {
         email
       })
       setAlert({
-        msg: data.msg,
+        msg: data?.msg,
         error: false
       })
+      setFormInputs({
+        nombre:"",
+        password:"",
+        password2:"",
+        email:"" 
+      })
+
     } catch (error) {
       setAlert({
-        msg: error.response.data.msg
+        msg: error.response.data.msg,
+        error: true
       })
     }
-    setTimeout(()=>setAlert({}) ,2000)
+    setTimeout(()=>{
+      setAlert({})
+   
+    } ,500)
    
     
   };

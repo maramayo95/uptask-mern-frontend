@@ -17,7 +17,7 @@ function App() {
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="forgot-password/:token" element={<ForgotPasswordToken />} />
           <Route path="new-password" element={<NewPassword />} />
-          <Route path="confirm-account" element={<ConfirmAccount />} />
+          <Route path="confirm-account/:token" element={<ConfirmAccount />} />
         </Route>
       </Routes>
     </BrowserRouter>
