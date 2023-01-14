@@ -69,7 +69,7 @@ const Register = () => {
     setTimeout(()=>{
       setAlert({})
    
-    } ,500)
+    } ,2000)
    
     
   };
