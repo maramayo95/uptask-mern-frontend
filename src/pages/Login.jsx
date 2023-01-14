@@ -5,8 +5,8 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 
 
-
 const Login = () => {
+  const {auth, setAuth, loading} = useAuth()
 
   const [loginInputs, setLoginInputs] = useState({
     email: "",
@@ -15,7 +15,6 @@ const Login = () => {
 
   const [alert, setAlert] = useState({})
 
-  const {} = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +34,8 @@ const Login = () => {
         email,
         password
       })
+
+      setAuth(data)
 
       localStorage.setItem('token', data.token)
     } catch (error) {

@@ -7,6 +7,8 @@ import NewPassword from "./pages/NewPassword";
 import ForgotPasswordToken from "./pages/ForgotPasswordToken";
 import ConfirmAccount from "./pages/ConfirmAccount";
 import { AuthProvider } from './context/AuthProvider'
+import ProtectedRoutes from "./layouts/ProtectedRoutes";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
@@ -21,7 +23,13 @@ function App() {
             <Route path="new-password" element={<NewPassword />} />
             <Route path="confirm-account/:token" element={<ConfirmAccount />} />
           </Route>
+          
+         {/* Protected Routes  */}
+          <Route path="/projects" element={<ProtectedRoutes />}>
+            <Route index element={<Projects />} />
+          </Route>
         </Routes>
+
       </AuthProvider>
     </BrowserRouter>
   );
