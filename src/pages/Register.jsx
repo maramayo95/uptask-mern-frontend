@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Alert from "../components/Alert";
 import axios from 'axios'
-import { data } from "autoprefixer";
+
 
 const Register = () => {
   const [formInputs, setFormInputs] = useState({

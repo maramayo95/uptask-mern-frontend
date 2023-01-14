@@ -38,7 +38,7 @@ export default function Header() {
                 <div id="MobileNavigation" className={`${show ? 'block' : 'hidden'} sm:hidden mt-4 mx-auto`}>
 
                     <div className="flex flex-col  gap-4 mt-4 w-80 mx-auto ">
-                        <p className="text-xl font-bold text-center">Hola : {auth.nombre}</p>
+                        <p className="text-xl font-bold text-center text-sky-800">Bienvenido {auth.nombre}</p>
                         <Link to="/projects" className="font-bold uppercase text-center"> Proyectos</Link>
                         <input type="search" placeholder='Buscar proyecto' className='rounded-lg lg:w-96 block p-2 border' />
                         <Link to="create-project" className='bg-sky-500 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-lg'>
